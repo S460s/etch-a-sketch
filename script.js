@@ -1,9 +1,4 @@
-let numOfSquares = document.querySelector("#numberPrompt")
-
-
 function createCells(num = 16) {
-
-
     if (num <= 100) {
     for(x=0; x< num**2; x++) {
         let cell = document.createElement('div');
@@ -14,6 +9,7 @@ function createCells(num = 16) {
     }
     container.style.cssText = `grid-template-columns: repeat(${num}, auto);    `
 }
+
 function changeColor() {
     let cells = document.querySelectorAll(".cell")
     cells.forEach((div) => {
@@ -22,18 +18,38 @@ function changeColor() {
         })
     })
 }
+
 function reset() {
     let cells = document.querySelectorAll(".cell")
     let reset = document.querySelector("#reset")
 
+
     reset.addEventListener("click", () =>{
         cells.forEach((cell) =>{
             cell.classList.remove("color")
-
         })
     })
 }
 
-createCells(
+function changeSize() {
+    
+    let squares = document.getElementById("squares").value
+    if (squares > 0 && squares < 101) {
+        let container = document.getElementById('container')
+        container.innerHTML = ""
+        createCells(squares)
+        changeColor()
+        reset()
+    }
+    
+    else{
+    let container = document.getElementById('container')
+    container.innerHTML = ""
+    createCells(16)
+    changeColor()
+    reset()
+    }
+}
+createCells()
 changeColor()
 reset()
