@@ -10,27 +10,27 @@
     <h1>Etch-A-Sketch</h1>
 
     <div id="container"></div>
+    <form action="">
+    <label for="squares">
+        <input onchange="changeSize()" id="squares" type="number" min="1" max="100" placeholder="Resize grid (from 1 to 100). ">
+    </label>
 
-    <footer>
-        <button id="reset">Reset</button>
-        <form action="">
-            <label for="squares">
-                <input onchange="changeSize()" id="squares" type="number" min="1" max="100" placeholder="Resize grid (from 1 to 100). ">
-            </label>
+    <div id="options">
+        <label>Random Color
+            <input name="modes" id="randomColor" type="radio">
+        <label for="randomColor">
+                
+        <label for="darker">Shades
+            <input name="modes" id="darker" type="radio">
+        </label>
+                
+    </div>
 
-
-            <label>
-                <input id="randomColor" type="checkbox">
-            </label>
-
-            <label>
-                <input id="darker" type="checkbox">
-            </label>
         </form>
+        <button id="reset">Reset</button>
 
 
 
-    </footer>
 
     <script src="script.js"></script>
 </body>

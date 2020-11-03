@@ -12,10 +12,8 @@ function createCells(num = 16) {
 
 function changeColor() {
     let cells = document.querySelectorAll(".cell")
-
     cells.forEach((div) => {
         let num2 = 255;
-
         div.addEventListener("mouseenter", () =>{
             if (document.querySelector("#darker").checked) {
                 num2 = num2 - 255/10
