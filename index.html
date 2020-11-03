@@ -14,8 +14,22 @@
     <footer>
         <button id="reset">Reset</button>
         <form action="">
-            <input onchange="changeSize()" id="squares" type="number" min="1" max="100" placeholder="Resize grid (from 1 to 100). ">
+            <label for="squares">
+                <input onchange="changeSize()" id="squares" type="number" min="1" max="100" placeholder="Resize grid (from 1 to 100). ">
+            </label>
+
+
+            <label>
+                <input id="randomColor" type="checkbox">
+            </label>
+
+            <label>
+                <input id="darker" type="checkbox">
+            </label>
         </form>
+
+
+
     </footer>
 
     <script src="script.js"></script>

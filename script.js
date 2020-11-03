@@ -12,9 +12,24 @@ function createCells(num = 16) {
 
 function changeColor() {
     let cells = document.querySelectorAll(".cell")
+
     cells.forEach((div) => {
+        let num2 = 255;
+
         div.addEventListener("mouseenter", () =>{
-            div.classList.add("color")
+            if (document.querySelector("#darker").checked) {
+                num2 = num2 - 255/10
+                div.style.cssText = `background-color: rgb(${num2}, ${num2}, ${num2})`
+            }
+            else if (document.querySelector("#randomColor").checked) {
+                let num3 = Math.floor(Math.random() * 256)
+                let num4 = Math.floor(Math.random() * 256)
+                let num5 = Math.floor(Math.random() * 256)
+                div.style.cssText = `background-color: rgb(${num3}, ${num4}, ${num5})`
+            }
+            else {
+            div.style.cssText = `background-color: black`
+            }
         })
     })
 }
@@ -26,7 +41,7 @@ function reset() {
 
     reset.addEventListener("click", () =>{
         cells.forEach((cell) =>{
-            cell.classList.remove("color")
+            cell.style.cssText = "background-color: white"
         })
     })
 }
@@ -41,7 +56,6 @@ function changeSize() {
         changeColor()
         reset()
     }
-    
     else{
     let container = document.getElementById('container')
     container.innerHTML = ""
@@ -50,6 +64,10 @@ function changeSize() {
     reset()
     }
 }
+
+
+
+
 createCells()
 changeColor()
 reset()
