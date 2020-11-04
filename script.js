@@ -1,16 +1,19 @@
+let container = document.getElementById('container')
+
+
 function createCells(num = 16) {
+    //Create the grid.
     if (num <= 100) {
     for(x=0; x< num**2; x++) {
         let cell = document.createElement('div');
         cell.className = "cell";
-        let container = document.getElementById('container')
         container.appendChild(cell);
         }
     }
     container.style.cssText = `grid-template-columns: repeat(${num}, auto);    `
 }
-
 function changeColor() {
+    //Change the color of the divs.
     let cells = document.querySelectorAll(".cell")
     cells.forEach((div) => {
         let num2 = 255;
@@ -26,42 +29,42 @@ function changeColor() {
                 div.style.cssText = `background-color: rgb(${num3}, ${num4}, ${num5})`
             }
             else {
-            div.style.cssText = `background-color: black`
+            div.style.cssText = `background-color: #fec89a`
             }
         })
     })
 }
 
 function reset() {
-    let cells = document.querySelectorAll(".cell")
+    // Reset the grid
+    let squares = document.getElementById("squares").value
     let reset = document.querySelector("#reset")
 
-
     reset.addEventListener("click", () =>{
-        cells.forEach((cell) =>{
-            cell.style.cssText = "background-color: white"
-        })
+        container.innerHTML = ""
+        createCells(squares)
+        changeColor()
     })
 }
 
 function changeSize() {
-    
+    // Change the size of the grid to the selected number.
     let squares = document.getElementById("squares").value
     if (squares > 0 && squares < 101) {
-        let container = document.getElementById('container')
         container.innerHTML = ""
         createCells(squares)
         changeColor()
         reset()
     }
     else{
-    let container = document.getElementById('container')
     container.innerHTML = ""
     createCells(16)
     changeColor()
     reset()
     }
 }
+
+
 
 
 

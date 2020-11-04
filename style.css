@@ -1,5 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+body{
+    background:linear-gradient(90deg,rgb(244, 162, 97), rgb(231, 111, 81) )
+}
 h1{
+
     text-align: center;
+    color: #ffeea4;
+    font-size: 5vmax;
 }
 
 #container{
@@ -19,20 +31,48 @@ h1{
 #reset{
     display: block;
     margin: auto;
-    width: 400px;
-    height: 50px;
+    width: 40vmax;
     margin-top: 20px;
+    background-color: #f9dcc4;
+    font-size: 3vmax;
+    color: #ff7300;
+    font-weight: 900;
+    border: none;
+    border-radius: 5px;
+    outline-color: burlywood;
+    margin-bottom: 3vmax;
 }
 
 #squares{
-    height: 30px;
-    width: 340px;
+    height: 3vmax;
+    width: 40vmax;
     display: block;
     margin: auto;
     margin-top: 40px;
+    background-color: #f9dcc4;
+    border: none;
+    border-radius: 5px;
+    font-size: 2vmax;
+    padding: 10px;
+    outline: none;
+    color: #ff7300;
 }
+
 #options{
     margin-top: 1vmax;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
+.radioText{
+    font-size: 2.5vmax;
+    color: #f8edeb;
+    font-weight: 800;
+}
+input[type=radio]{
+    display: inline;
+    border: 0px;
+    width: 2vmax;
+    height: 2vmax;
+}
+
+

@@ -12,17 +12,20 @@
     <div id="container"></div>
     <form action="">
     <label for="squares">
-        <input onchange="changeSize()" id="squares" type="number" min="1" max="100" placeholder="Resize grid (from 1 to 100). ">
+        <input onchange="changeSize()" id="squares" type="number" min="1" max="100" placeholder="Resize grid (from 1 to 100). " value=16>
     </label>
 
     <div id="options">
-        <label>Random Color
-            <input name="modes" id="randomColor" type="radio">
+        <label><span class="radioText">Random Color</span> 
+            <input class="radio" name="modes" id="randomColor" type="radio">
         <label for="randomColor">
                 
-        <label for="darker">Shades
-            <input name="modes" id="darker" type="radio">
+        <label for="darker"><span class="radioText">Shades</span> 
+            <input class="radio" name="modes" id="darker" type="radio">
         </label>
+
+
+        
                 
     </div>
 
