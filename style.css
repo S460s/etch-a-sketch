@@ -11,12 +11,12 @@ h1{
 
     text-align: center;
     color: #ffeea4;
-    font-size: 5vmax;
+    font-size: 4vmax;
 }
 
 #container{
-    width: 45vmax;
-    height: 45vmax;
+    width: 35vmax;
+    height: 35vmax;
     border: solid black 5px;
     margin: auto;
     margin-top: 1vw;
@@ -31,10 +31,10 @@ h1{
 #reset{
     display: block;
     margin: auto;
-    width: 40vmax;
-    margin-top: 20px;
+    width: 30vmax;
+    margin-top: 0.1vmax;
     background-color: #f9dcc4;
-    font-size: 3vmax;
+    font-size: 2vmax;
     color: #ff7300;
     font-weight: 900;
     border: none;
@@ -44,11 +44,11 @@ h1{
 }
 
 #squares{
-    height: 3vmax;
+    height: 2vmax;
     width: 40vmax;
     display: block;
     margin: auto;
-    margin-top: 40px;
+    margin-top: 1vmax;
     background-color: #f9dcc4;
     border: none;
     border-radius: 5px;
@@ -59,7 +59,6 @@ h1{
 }
 
 #options{
-    margin-top: 1vmax;
     display: flex;
     justify-content: space-evenly;
 }
