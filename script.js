@@ -67,31 +67,27 @@ const colorSettings = (function () {
 
 const sketchFlow = (function () {
 	let sizeChanger = document.getElementById("squares");
+	let resetButton = document.querySelector("#reset");
 
 	function reset() {
 		// Reset the grid
-		let reset = document.querySelector("#reset");
-		reset.addEventListener("click", () => {
+		resetButton.addEventListener("click", () => {
 			container.innerHTML = "";
-			sketch.createCells(squares);
+			sketch.createCells(sizeChanger.value);
 			colorSettings.changeColor();
 		});
 	}
 
 	function changeSize() {
 		// Change the size of the grid to the selected number.
-		sizeChanger.addEventListener("change", () => {
+		const etchForm = document.querySelector("#etchForm");
+		etchForm.addEventListener("submit", (event) => {
+			event.preventDefault();
 			let squares = document.getElementById("squares").value;
 			if (squares > 0 && squares < 101) {
 				container.innerHTML = "";
 				sketch.createCells(squares);
 				colorSettings.changeColor();
-				reset();
-			} else {
-				container.innerHTML = "";
-				sketch.createCells(16);
-				colorSettings.changeColor();
-				reset();
 			}
 		});
 	}
@@ -104,7 +100,7 @@ const sketchFlow = (function () {
 		changeSize();
 	};
 
-	return { reset, changeSize, startSketch };
+	return { startSketch };
 })();
 
 sketchFlow.startSketch();
