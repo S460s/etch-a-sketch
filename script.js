@@ -1,10 +1,6 @@
 let container = document.getElementById("container");
 
 const sketch = (function () {
-	let colorPicker = document.getElementById("colorPicker");
-	let darker = document.querySelector("#darker");
-	let rainbow = document.querySelector("#randomColor");
-
 	const createCells = function (num = 16) {
 		//Create the grid.
 		if (num <= 100) {
@@ -16,6 +12,14 @@ const sketch = (function () {
 		}
 		container.style.cssText = `grid-template-columns: repeat(${num}, auto);    `;
 	};
+
+	return { createCells };
+})();
+
+const colorSettings = (function () {
+	let colorPicker = document.getElementById("colorPicker");
+	let darker = document.querySelector("#darker");
+	let rainbow = document.querySelector("#randomColor");
 
 	const shadeColor = function (div, num2) {
 		num2 = num2 - 255 / 10;
@@ -58,38 +62,49 @@ const sketch = (function () {
 		});
 	};
 
-	return { createCells, changeColor, uncheckRadio };
+	return { changeColor, uncheckRadio };
 })();
 
-function reset() {
-	// Reset the grid
-	let squares = document.getElementById("squares").value;
-	let reset = document.querySelector("#reset");
+const sketchFlow = (function () {
+	let sizeChanger = document.getElementById("squares");
 
-	reset.addEventListener("click", () => {
-		container.innerHTML = "";
-		sketch.createCells(squares);
-		sketch.changeColor();
-	});
-}
-
-function changeSize() {
-	// Change the size of the grid to the selected number.
-	let squares = document.getElementById("squares").value;
-	if (squares > 0 && squares < 101) {
-		container.innerHTML = "";
-		sketch.createCells(squares);
-		changeColor();
-		reset();
-	} else {
-		container.innerHTML = "";
-		createCells(16);
-		changeColor();
-		reset();
+	function reset() {
+		// Reset the grid
+		let reset = document.querySelector("#reset");
+		reset.addEventListener("click", () => {
+			container.innerHTML = "";
+			sketch.createCells(squares);
+			colorSettings.changeColor();
+		});
 	}
-}
 
-sketch.uncheckRadio();
-sketch.createCells();
-sketch.changeColor();
-reset();
+	function changeSize() {
+		// Change the size of the grid to the selected number.
+		sizeChanger.addEventListener("change", () => {
+			let squares = document.getElementById("squares").value;
+			if (squares > 0 && squares < 101) {
+				container.innerHTML = "";
+				sketch.createCells(squares);
+				colorSettings.changeColor();
+				reset();
+			} else {
+				container.innerHTML = "";
+				sketch.createCells(16);
+				colorSettings.changeColor();
+				reset();
+			}
+		});
+	}
+
+	const startSketch = function () {
+		colorSettings.uncheckRadio();
+		sketch.createCells();
+		colorSettings.changeColor();
+		reset();
+		changeSize();
+	};
+
+	return { reset, changeSize, startSketch };
+})();
+
+sketchFlow.startSketch();
